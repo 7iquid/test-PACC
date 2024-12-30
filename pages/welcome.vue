@@ -66,8 +66,6 @@ const handleLogout = async () => {
   color: white;
   padding: 0.8rem 1.6rem;
   font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
