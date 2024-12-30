@@ -27,45 +27,31 @@ defineProps({
   </div>
 </template>
 
+
 <style lang="sass" scoped>
 @use 'sass:map'
 @import '@/assets/css/all.sass'
+
+
 .onboard-card
   width: 100%
+  min-height: 34rem
   max-width: 68.4rem
   background-color: $white
   border-radius: $radius-02
-  padding: 4rem
-  box-sizing: content-box
-  border: 0.08rem solid map.get($greyShades, 'greyShade10')
+  padding: $space-08
+  box-sizing: border-box
+  border: 0.02rem solid map.get($greyShades, 'greyShade10')
+  box-shadow: $shadow-elevation-medium
+  transition: $transition-background-color, $transition-opacity
 
-  @media (max-width: $ms-breakpoint)
-    width: 100%
-    min-height: 100%
+  @media (max-width: $md-breakpoint)
+    padding: $space-06
+    max-width: 100%
+    border-radius: $radius-01
+
+  @media (max-width: $xs-breakpoint)
+    padding: $space-04
     border: none
-    box-shadow: none
-    border-radius: 0
-    flex-grow: 1
-
-  &__header
-    padding: 0
-
-    &-wrapper
-      margin-bottom: 3.2rem
-      display: flex
-      flex-direction: column
-      gap: 0.8rem
-
-  &__legend
-    @include paragraph-01
-    color: $primary
-    line-height: 160%
-
-  &__content
-    display: flex
-    flex-direction: column
-    gap: 3.2rem
-
-    @media (max-width: $ms-breakpoint)
-      padding: $space-04
+    box-shadow: $shadow-elevation-small
 </style>

@@ -28,7 +28,7 @@ const handleLogout = async () => {
       </span>
     </div>
 
-    <ButtonWrapper>
+    <ButtonWrapper class="button-pos">
       <template #floatLeft>
         <CoreButton text="Logout" @click="handleLogout" class="logout-btn" />
       </template>
@@ -38,9 +38,14 @@ const handleLogout = async () => {
 
 <style scoped>
 /* Container for the welcome message */
+.button-pos {
+  display: flex;
+}
+
 .welcome-message {
   text-align: center;
   margin-top: 50px;
+  padding-bottom: 7rem;
 }
 
 /* Animated greeting text */
