@@ -1,10 +1,16 @@
 <script setup lang="ts">
 definePageMeta({
   middleware: ["auth"]
-})
+});
 
 const userDataStore = useUserDataStore();
 const router = useRouter();
+
+// Computed property to capitalize the first letter of the username
+const capitalizedUsername = computed(() => {
+  const username = userDataStore.$state.username || '';
+  return username.charAt(0).toUpperCase() + username.slice(1);
+});
 
 // Handle logout by clearing the session and resetting the form
 const handleLogout = async () => {
@@ -17,9 +23,8 @@ const handleLogout = async () => {
   <NuxtLayout :name="'page'">
     <div class="welcome-message">
       <span class="greeting">
-        "Welcome, <span class="username">{{ userDataStore.$state.username }}!</span> We're excited to have you here.
-        Let's make
-        great things happen together!"
+        Welcome, <span class="username">{{ capitalizedUsername }}!</span> We're excited to have you here.
+        Let's make great things happen together!
       </span>
     </div>
 
@@ -49,13 +54,11 @@ const handleLogout = async () => {
   transform: translateY(-30px);
   animation: fadeInUp 1s ease forwards;
   animation-delay: 0.5s;
-  /* Delay for better visibility */
 }
 
 /* Username styled differently */
 .username {
   color: #466ae0;
-  /* Use a nice color for the username */
   font-size: 2.2rem;
   font-weight: bold;
 }
@@ -72,7 +75,6 @@ const handleLogout = async () => {
 
 .logout-btn:hover {
   background-color: #e64a19;
-  /* Slightly darker shade on hover */
 }
 
 /* Keyframes for fade and slide-in animation */

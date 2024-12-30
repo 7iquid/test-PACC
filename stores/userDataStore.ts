@@ -14,6 +14,6 @@ export const useUserDataStore = defineStore('main', {
     },
   },
   persist: {
-    storage: piniaPluginPersistedstate.localStorage(),
+    storage: piniaPluginPersistedstate.cookies(),
   },
 })
