@@ -1,12 +1,21 @@
-export const useUserDataStore = defineStore('userDataStore', {
-    state: () => ({
-      username: '',
-      auth: ''
-    }),
-    actions: {
-      save_login(username, auth) { 
-        this.username = username
-        this.auth = auth
-      }
-    }
+import { defineStore } from 'pinia';
+
+export const useUserDataStore = defineStore('main', {
+  state: () => ({
+    username: '',
+    auth: '',
+  }),
+  actions: {
+    login(username: string, auth: string) {
+      this.username = username;
+      this.auth = auth;
+    },
+    logout() {
+      this.username = '';
+      this.auth = '';
+    },
+  },
+  persist: {
+    storage: piniaPluginPersistedstate.localStorage(),
+  },
 })
