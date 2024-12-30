@@ -24,6 +24,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'; // Import useRouter
 
+definePageMeta({
+  middleware: ["check"]
+})
+
 const username = ref('');
 const password = ref('');
 const userDataStore = useUserDataStore();
