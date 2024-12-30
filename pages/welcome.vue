@@ -16,9 +16,10 @@ const handleLogout = async () => {
 <template>
   <NuxtLayout :name="'page'">
     <div class="welcome-message">
-      <span class="typing">
-        "Welcome, <span class="username">{{ userDataStore.$state.username }}</span>! Let's make
-        great things happen together!. "
+      <span class="greeting">
+        "Welcome, <span class="username">{{ userDataStore.$state.username }}!</span> We're excited to have you here.
+        Let's make
+        great things happen together!"
       </span>
     </div>
 
@@ -35,27 +36,27 @@ const handleLogout = async () => {
 .welcome-message {
   text-align: center;
   margin-top: 50px;
-  font-family: 'Verdana', sans-serif;
-  padding: 0 10px;
-  font-size: 1.5rem;
 }
 
-/* Typing animation */
-.typing {
-  font-size: 1.5rem;
+/* Animated greeting text */
+.greeting {
+  font-size: 2rem;
+  font-family: 'Verdana', sans-serif;
   color: #333;
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
   display: inline-block;
-  width: 0;
-  animation: typing 4s steps(60) 1s forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+  /* Delay for better visibility */
 }
 
 /* Username styled differently */
 .username {
-  color: #4CAF50;
-  font-size: 1.8rem;
+  color: #466ae0;
+  /* Use a nice color for the username */
+  font-size: 2.2rem;
   font-weight: bold;
 }
 
@@ -73,16 +74,19 @@ const handleLogout = async () => {
 
 .logout-btn:hover {
   background-color: #e64a19;
+  /* Slightly darker shade on hover */
 }
 
-/* Typing animation steps */
-@keyframes typing {
+/* Keyframes for fade and slide-in animation */
+@keyframes fadeInUp {
   0% {
-    width: 0;
+    opacity: 0;
+    transform: translateY(-30px);
   }
 
   100% {
-    width: 100%;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

@@ -7,12 +7,10 @@ export const useUserDataStore = defineStore('main', {
   }),
   actions: {
     login(username: string, auth: string) {
-      this.username = username;
-      this.auth = auth;
+      this.$state = { username, auth };
     },
     logout() {
-      this.username = '';
-      this.auth = '';
+      this.$state = { username: '', auth: '' };
     },
   },
   persist: {

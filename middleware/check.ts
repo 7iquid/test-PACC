@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(() => {
     const store = useUserDataStore()
-    console.log('store check', store.$state)
     if (store.$state.username) {
+      console.log('store welcome', store.$state)
       return navigateTo('/welcome')
     } 
   }) 
